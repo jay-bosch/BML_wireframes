@@ -3060,21 +3060,28 @@
             <div class="page-subtitle">Accessible to IPM, Admin and Leadership roles only · Data-first design, minimal
               color, clear graphs</div>
           </div>
+
+          <!-- Filters -->
           <div class="filter-bar">
             <select>
               <option>Last 12 months</option>
               <option>Last 6 months</option>
               <option>2025</option>
+              <option>2024</option>
             </select>
             <select>
               <option>All BUs</option>
               <option>Manufacturing</option>
               <option>Mobility</option>
+              <option>Software &amp; Digital</option>
+              <option>Building Technology</option>
             </select>
             <select>
               <option>All campaigns</option>
               <option>Call4Ideas</option>
               <option>InnoAccel</option>
+              <option>Call4More</option>
+              <option>Call4Alliance</option>
             </select>
             <select>
               <option>All stages</option>
@@ -3084,165 +3091,185 @@
               <option>IM5</option>
             </select>
           </div>
+
+          <!-- ROW 1 — KPI Tiles (BRD: Stage distribution | Avg. time per stage | Total funding | Realized ROI | Active campaigns) -->
           <div class="kpi-row">
             <div class="kpi">
-              <div class="kpi-label">Total projects</div>
-              <div class="kpi-value">50</div>
+              <div class="kpi-label">Stage distribution</div>
+              <div class="kpi-value" style="font-size:16px;line-height:1.6">
+                <span style="font-size:11px;color:var(--text-tertiary);font-weight:500">IM2 </span><strong>24</strong>
+                <span style="font-size:11px;color:var(--text-tertiary);font-weight:500;margin-left:6px">IM3 </span><strong>13</strong>
+                <span style="font-size:11px;color:var(--text-tertiary);font-weight:500;margin-left:6px">IM4 </span><strong>9</strong>
+                <span style="font-size:11px;color:var(--text-tertiary);font-weight:500;margin-left:6px">IM5 </span><strong>4</strong>
+              </div>
+              <div class="kpi-delta">50 projects total</div>
             </div>
             <div class="kpi">
               <div class="kpi-label">Avg. time per stage</div>
               <div class="kpi-value">6.2 mo</div>
+              <div class="kpi-delta">↓ 0.4 mo vs last cohort</div>
             </div>
             <div class="kpi">
-              <div class="kpi-label">Total funding</div>
+              <div class="kpi-label">Total funding allocated</div>
               <div class="kpi-value">€2.4M</div>
+              <div class="kpi-delta">Across all active projects</div>
             </div>
             <div class="kpi">
               <div class="kpi-label">Realized ROI</div>
               <div class="kpi-value">€830k</div>
+              <div class="kpi-delta">IM4–IM5 projects</div>
             </div>
             <div class="kpi">
               <div class="kpi-label">Active campaigns</div>
               <div class="kpi-value">6</div>
+              <div class="kpi-delta">MNXT + BBM-IN</div>
             </div>
           </div>
-          <div class="three-col" style="margin-bottom:20px">
+
+          <!-- ROW 2 — Charts: Funding allocation by stage (bar) | Idea-to-scale funnel -->
+          <div class="two-col" style="margin-bottom:20px">
             <div class="card">
-              <div class="section-title">Funding by stage</div>
+              <div class="section-title">Funding allocation by stage</div>
               <div class="bar-chart">
                 <div class="bar-row"><span class="bar-label">IM2</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:30%"></div>
-                  </div><span class="bar-val">€180k</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:19%"></div></div>
+                  <span class="bar-val">€180k</span>
                 </div>
                 <div class="bar-row"><span class="bar-label">IM3</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:55%"></div>
-                  </div><span class="bar-val">€620k</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
+                  <span class="bar-val">€620k</span>
                 </div>
                 <div class="bar-row"><span class="bar-label">IM4</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:80%"></div>
-                  </div><span class="bar-val">€950k</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+                  <span class="bar-val">€950k</span>
                 </div>
                 <div class="bar-row"><span class="bar-label">IM5</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:55%"></div>
-                  </div><span class="bar-val">€650k</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:68%"></div></div>
+                  <span class="bar-val">€650k</span>
                 </div>
               </div>
+              <div style="font-size:10.5px;color:var(--text-tertiary);margin-top:10px">Total allocated: <strong>€2.4M</strong> · Seed / A-Funding / B-Funding gates applied per stage</div>
             </div>
             <div class="card">
               <div class="section-title">Idea-to-scale funnel</div>
               <div class="funnel-step"><span>Submitted</span>
-                <div class="funnel-bar">
-                  <div class="funnel-fill" style="width:100%"></div>
-                </div><span>312</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width:100%"></div></div><span>312</span>
               </div>
               <div class="funnel-step"><span>Longlisted</span>
-                <div class="funnel-bar">
-                  <div class="funnel-fill" style="width:70%"></div>
-                </div><span>148</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width:47%"></div></div><span>148</span>
               </div>
               <div class="funnel-step"><span>Shortlisted</span>
-                <div class="funnel-bar">
-                  <div class="funnel-fill" style="width:40%"></div>
-                </div><span>88</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width:28%"></div></div><span>88</span>
               </div>
               <div class="funnel-step"><span>Funded</span>
-                <div class="funnel-bar">
-                  <div class="funnel-fill" style="width:20%"></div>
-                </div><span>37</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width:12%"></div></div><span>37</span>
               </div>
               <div class="funnel-step"><span>IM4+</span>
-                <div class="funnel-bar">
-                  <div class="funnel-fill" style="width:8%"></div>
-                </div><span>13</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width:4%"></div></div><span>13</span>
               </div>
+              <div style="font-size:10.5px;color:var(--text-tertiary);margin-top:10px">Conversion rate Submitted → IM4+: <strong>4.2%</strong></div>
             </div>
-            <div class="card">
+          </div>
+
+          <!-- ROW 3 — Performance Tables: Campaign performance table | Cohort performance table -->
+          <div class="two-col" style="margin-bottom:8px">
+            <div>
               <div class="section-title">Campaign performance</div>
-              <div class="bar-chart">
-                <div class="bar-row"><span class="bar-label">Call4Ideas</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:90%"></div>
-                  </div><span class="bar-val">14</span>
-                </div>
-                <div class="bar-row"><span class="bar-label">InnoAccel</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:65%"></div>
-                  </div><span class="bar-val">9</span>
-                </div>
-                <div class="bar-row"><span class="bar-label">Call4More</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:50%"></div>
-                  </div><span class="bar-val">7</span>
-                </div>
-                <div class="bar-row"><span class="bar-label">C4Alliance</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:36%"></div>
-                  </div><span class="bar-val">5</span>
-                </div>
+              <div class="card" style="padding:0;overflow:hidden">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Campaign</th>
+                      <th>Projects</th>
+                      <th>Funded</th>
+                      <th>IM4+</th>
+                      <th>Conversion</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight:500">Call4Ideas</td>
+                      <td>187</td>
+                      <td>14</td>
+                      <td>6</td>
+                      <td><span class="dot-green">● 7.5%</span></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:500">InnoAccel</td>
+                      <td>72</td>
+                      <td>9</td>
+                      <td>4</td>
+                      <td><span class="dot-green">● 5.6%</span></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:500">Call4More</td>
+                      <td>38</td>
+                      <td>7</td>
+                      <td>2</td>
+                      <td><span class="dot-amber">● 5.3%</span></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:500">Call4Alliance</td>
+                      <td>15</td>
+                      <td>5</td>
+                      <td>1</td>
+                      <td><span class="dot-amber">● 6.7%</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div>
+              <div class="section-title">Cohort performance</div>
+              <div class="card" style="padding:0;overflow:hidden">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Cohort</th>
+                      <th>Campaign</th>
+                      <th>Projects</th>
+                      <th>Avg. stage</th>
+                      <th>Progress</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight:500">2024-A</td>
+                      <td>InnoAccel</td>
+                      <td>9</td>
+                      <td><span class="badge badge-stage">IM4</span></td>
+                      <td><div style="width:100px"><div class="progress"><div class="progress-fill" style="width:90%"></div></div></div></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:500">2025-A</td>
+                      <td>Call4Ideas</td>
+                      <td>8</td>
+                      <td><span class="badge badge-stage">IM3</span></td>
+                      <td><div style="width:100px"><div class="progress"><div class="progress-fill" style="width:65%"></div></div></div></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:500">2025-B</td>
+                      <td>Call4Ideas</td>
+                      <td>6</td>
+                      <td><span class="badge badge-stage">IM2</span></td>
+                      <td><div style="width:100px"><div class="progress"><div class="progress-fill" style="width:30%"></div></div></div></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:500">2026-A</td>
+                      <td>Call4More</td>
+                      <td>TBD</td>
+                      <td style="color:var(--text-tertiary)">—</td>
+                      <td style="color:var(--text-tertiary);font-size:11px">Upcoming</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-          <div class="section-title">Cohort performance</div>
-          <div class="card" style="padding:0;overflow:hidden;margin-bottom:12px">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Cohort</th>
-                  <th>Campaign</th>
-                  <th>Projects</th>
-                  <th>Avg. stage</th>
-                  <th>Progress</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>2025-A</td>
-                  <td>Call4Ideas</td>
-                  <td>8</td>
-                  <td>IM3</td>
-                  <td>
-                    <div style="width:120px">
-                      <div class="progress">
-                        <div class="progress-fill" style="width:75%"></div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2025-B</td>
-                  <td>Call4Ideas</td>
-                  <td>6</td>
-                  <td>IM2</td>
-                  <td>
-                    <div style="width:120px">
-                      <div class="progress">
-                        <div class="progress-fill" style="width:40%"></div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2024-A</td>
-                  <td>InnoAccel</td>
-                  <td>9</td>
-                  <td>IM4</td>
-                  <td>
-                    <div style="width:120px">
-                      <div class="progress">
-                        <div class="progress-fill" style="width:90%"></div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+
+          <div style="display:flex;justify-content:flex-end;margin-top:4px">
+            <button class="btn btn-sm"><i class="fa-solid fa-download"></i> Export report</button>
           </div>
-          <div style="text-align:right"><button class="btn btn-sm"><i class="fa-solid fa-download"></i> Export
-              report</button></div>
         </div>
 
         <!-- ===== IPM WORKFLOW ===== -->
