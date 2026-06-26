@@ -40,6 +40,11 @@
       --red-text: #c62828;
       --blue-bg: #e3f2fd;
       --blue-text: #1565c0;
+      --primary: #1a56db;
+      --primary-soft: #eff3ff;
+      --bbg: #e3f2fd;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
     }
 
     html,
@@ -59,9 +64,9 @@
 
     /* SIDEBAR */
     .sidebar {
-      width: 220px;
-      min-width: 220px;
-      background: var(--bg-primary);
+      width: 226px;
+      min-width: 226px;
+      background: #fafafa;
       border-right: 1px solid var(--border-light);
       display: flex;
       flex-direction: column;
@@ -71,6 +76,7 @@
     .sidebar-logo {
       padding: 18px 16px 14px;
       border-bottom: 1px solid var(--border-light);
+      background: linear-gradient(135deg, #f0f4ff 0%, #fafafa 100%);
     }
 
     .sidebar-logo .name {
@@ -119,10 +125,10 @@
     }
 
     .nav-item.active {
-      color: var(--text-primary);
-      background: var(--bg-secondary);
-      border-left-color: var(--text-primary);
-      font-weight: 500;
+      color: var(--primary);
+      background: var(--primary-soft);
+      border-left-color: var(--primary);
+      font-weight: 600;
     }
 
     .nav-item i {
@@ -140,14 +146,15 @@
     }
 
     .topbar {
-      height: 48px;
+      height: 50px;
       background: var(--bg-primary);
       border-bottom: 1px solid var(--border-light);
       display: flex;
       align-items: center;
-      padding: 0 20px;
+      padding: 0 24px;
       gap: 12px;
       flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
     }
 
     .topbar-title {
@@ -207,10 +214,11 @@
 
     /* TYPOGRAPHY */
     .page-title {
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: -0.4px;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
       margin-bottom: 4px;
+      color: var(--text-primary);
     }
 
     .page-subtitle {
@@ -240,9 +248,11 @@
     }
 
     .kpi {
-      background: var(--bg-secondary);
+      background: var(--bg-primary);
+      border: 1px solid var(--border-light);
       border-radius: var(--radius-md);
-      padding: 14px;
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
     }
 
     .kpi-label {
@@ -269,8 +279,9 @@
       background: var(--bg-primary);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-lg);
-      padding: 16px;
-      margin-bottom: 12px;
+      padding: 18px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
     }
 
     .card-grid {
@@ -284,14 +295,15 @@
       background: var(--bg-primary);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-lg);
-      padding: 14px;
+      padding: 16px;
       cursor: pointer;
-      transition: border-color .12s, box-shadow .12s;
+      transition: border-color .15s, box-shadow .15s, transform .1s;
     }
 
     .card-sm:hover {
-      border-color: var(--border-dark);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      border-color: #bbb;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
     }
 
     .card-title {
@@ -365,13 +377,14 @@
     }
 
     .btn-primary {
-      background: var(--text-primary);
+      background: var(--primary);
       color: #fff;
-      border-color: var(--text-primary);
+      border-color: var(--primary);
     }
 
     .btn-primary:hover {
-      background: #333;
+      background: #1447c0;
+      border-color: #1447c0;
     }
 
     .btn-success {
@@ -851,6 +864,7 @@
       <div class="nav-section">
         <div class="nav-label">Operations</div>
         <div class="nav-item" onclick="go('booking',this)"><i class="fa-solid fa-calendar"></i> Asset Booking</div>
+        <div class="nav-item" onclick="go('communications',this)"><i class="fa-solid fa-bullhorn"></i> Communications</div>
         <div class="nav-item" onclick="go('governance',this)" style="justify-content:space-between"><span
             style="display:flex;align-items:center;gap:8px"><i class="fa-solid fa-shield-halved"></i>
             Governance</span><span
@@ -2719,6 +2733,95 @@
             email-based approvals. Full audit trail maintained.</div>
         </div>
 
+        <!-- ===== COMMUNICATIONS ===== -->
+        <div class="screen" id="s-communications">
+          <div class="page-header">
+            <div class="page-title">Communications</div>
+            <div class="page-subtitle">Platform announcements, news and updates for all BML participants</div>
+          </div>
+          <div class="filter-bar">
+            <input placeholder="Search announcements...">
+            <select>
+              <option>All types</option>
+              <option>Announcement</option>
+              <option>News</option>
+              <option>Maintenance</option>
+              <option>Achievement</option>
+            </select>
+          </div>
+
+          <!-- Blog released -->
+          <div class="card" style="margin-bottom:14px;border-left:3px solid #7c3aed">
+            <div style="display:flex;align-items:flex-start;gap:14px">
+              <div style="width:36px;height:36px;border-radius:50%;background:#f3e5f5;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fa-solid fa-rss" style="color:#7c3aed;font-size:14px"></i>
+              </div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                  <span style="font-size:12.5px;font-weight:600">New Blog Released — Innovation in the Age of AI</span>
+                  <span style="font-size:10px;background:#f3e5f5;color:#7c3aed;padding:2px 8px;border-radius:20px;font-weight:600">Blog</span>
+                </div>
+                <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.6">Read our latest blog on how BML projects are embracing AI-first approaches across IM stages. Featuring SmartFlex Pilot and GreenLoop as case highlights.</div>
+                <div style="margin-top:10px;display:flex;align-items:center;gap:10px">
+                  <button class="btn btn-sm" style="background:#7c3aed;color:#fff;border-color:#7c3aed"><i class="fa-solid fa-arrow-up-right-from-square" style="margin-right:5px"></i>Read Blog</button>
+                  <span style="font-size:10.5px;color:var(--text-tertiary)">Today · Published by BML Editorial</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Call4More opens -->
+          <div class="card" style="margin-bottom:14px;border-left:3px solid var(--blue-text)">
+            <div style="display:flex;align-items:flex-start;gap:14px">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--blue-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fa-solid fa-bullhorn" style="color:var(--blue-text);font-size:14px"></i>
+              </div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                  <span style="font-size:12.5px;font-weight:600">Call4More opens for submissions next week</span>
+                  <span style="font-size:10px;background:var(--blue-bg);color:var(--blue-text);padding:2px 8px;border-radius:20px;font-weight:600">Announcement</span>
+                </div>
+                <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.6">Scale-ready IM3+ projects can apply starting 1 Jul 2026. Reach out to your Campaign Manager for early access.</div>
+                <div style="margin-top:10px;font-size:10.5px;color:var(--text-tertiary)">2 days ago · Posted by IPM Team</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Maintenance -->
+          <div class="card" style="margin-bottom:14px;border-left:3px solid var(--border-dark)">
+            <div style="display:flex;align-items:flex-start;gap:14px">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--bg-secondary);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fa-solid fa-circle-info" style="color:var(--text-tertiary);font-size:14px"></i>
+              </div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                  <span style="font-size:12.5px;font-weight:600">Platform maintenance window — 22 Jun, 11 PM–1 AM IST</span>
+                  <span style="font-size:10px;background:var(--bg-secondary);color:var(--text-secondary);padding:2px 8px;border-radius:20px;font-weight:600;border:1px solid var(--border-light)">Maintenance</span>
+                </div>
+                <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.6">Cloud Sandbox and Asset Booking will be briefly unavailable during this window.</div>
+                <div style="margin-top:10px;font-size:10.5px;color:var(--text-tertiary)">5 days ago · Posted by Platform Admin</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GreenLoop achievement -->
+          <div class="card" style="margin-bottom:14px;border-left:3px solid var(--amber-text)">
+            <div style="display:flex;align-items:flex-start;gap:14px">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--amber-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fa-solid fa-trophy" style="color:var(--amber-text);font-size:14px"></i>
+              </div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                  <span style="font-size:12.5px;font-weight:600">GreenLoop reaches IM5 — congratulations to the team</span>
+                  <span style="font-size:10px;background:var(--amber-bg);color:var(--amber-text);padding:2px 8px;border-radius:20px;font-weight:600">Achievement</span>
+                </div>
+                <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.6">First Call4Ideas project to complete the full Explore → Build → Scale journey.</div>
+                <div style="margin-top:10px;font-size:10.5px;color:var(--text-tertiary)">1 week ago · Posted by IPM Team</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- ===== GOVERNANCE ===== -->
         <div class="screen" id="s-governance">
           <div class="page-header">
@@ -3677,6 +3780,7 @@
       home: 'Home', explore: 'Explore', build: 'Build Workspace', scale: 'Scale — Portfolio',
       campaigns: 'Campaigns', cohorts: 'Cohorts', repo: 'Repository', learning: 'Learning',
       sandbox: 'Cloud Sandbox', people: 'People — Expert Network', booking: 'Asset Booking',
+      communications: 'Communications',
       governance: 'Governance & Standards', insights: 'Insights / KPIs',
       ipm: 'IPM Workflow', submit: 'Submit Idea', profile: 'Profile', about: 'About / Help',
       admincampaign: 'Create Campaign — Admin'
