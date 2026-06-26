@@ -40,6 +40,11 @@
       --red-text: #c62828;
       --blue-bg: #e3f2fd;
       --blue-text: #1565c0;
+      --primary: #1a56db;
+      --primary-soft: #eff3ff;
+      --bbg: #e3f2fd;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
     }
 
     html,
@@ -59,9 +64,9 @@
 
     /* SIDEBAR */
     .sidebar {
-      width: 220px;
-      min-width: 220px;
-      background: var(--bg-primary);
+      width: 226px;
+      min-width: 226px;
+      background: #fafafa;
       border-right: 1px solid var(--border-light);
       display: flex;
       flex-direction: column;
@@ -71,6 +76,7 @@
     .sidebar-logo {
       padding: 18px 16px 14px;
       border-bottom: 1px solid var(--border-light);
+      background: linear-gradient(135deg, #f0f4ff 0%, #fafafa 100%);
     }
 
     .sidebar-logo .name {
@@ -119,10 +125,10 @@
     }
 
     .nav-item.active {
-      color: var(--text-primary);
-      background: var(--bg-secondary);
-      border-left-color: var(--text-primary);
-      font-weight: 500;
+      color: var(--primary);
+      background: var(--primary-soft);
+      border-left-color: var(--primary);
+      font-weight: 600;
     }
 
     .nav-item i {
@@ -140,14 +146,15 @@
     }
 
     .topbar {
-      height: 48px;
+      height: 50px;
       background: var(--bg-primary);
       border-bottom: 1px solid var(--border-light);
       display: flex;
       align-items: center;
-      padding: 0 20px;
+      padding: 0 24px;
       gap: 12px;
       flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
     }
 
     .topbar-title {
@@ -207,10 +214,11 @@
 
     /* TYPOGRAPHY */
     .page-title {
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: -0.4px;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
       margin-bottom: 4px;
+      color: var(--text-primary);
     }
 
     .page-subtitle {
@@ -240,9 +248,11 @@
     }
 
     .kpi {
-      background: var(--bg-secondary);
+      background: var(--bg-primary);
+      border: 1px solid var(--border-light);
       border-radius: var(--radius-md);
-      padding: 14px;
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
     }
 
     .kpi-label {
@@ -269,8 +279,9 @@
       background: var(--bg-primary);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-lg);
-      padding: 16px;
-      margin-bottom: 12px;
+      padding: 18px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
     }
 
     .card-grid {
@@ -284,14 +295,15 @@
       background: var(--bg-primary);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-lg);
-      padding: 14px;
+      padding: 16px;
       cursor: pointer;
-      transition: border-color .12s, box-shadow .12s;
+      transition: border-color .15s, box-shadow .15s, transform .1s;
     }
 
     .card-sm:hover {
-      border-color: var(--border-dark);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      border-color: #bbb;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
     }
 
     .card-title {
@@ -365,13 +377,14 @@
     }
 
     .btn-primary {
-      background: var(--text-primary);
+      background: var(--primary);
       color: #fff;
-      border-color: var(--text-primary);
+      border-color: var(--primary);
     }
 
     .btn-primary:hover {
-      background: #333;
+      background: #1447c0;
+      border-color: #1447c0;
     }
 
     .btn-success {
@@ -702,7 +715,10 @@
     .bar-val {
       font-size: 10px;
       color: var(--text-tertiary);
-      width: 38px;
+      width: 46px;
+      text-align: right;
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
     }
 
     /* FUNNEL */
@@ -851,6 +867,7 @@
       <div class="nav-section">
         <div class="nav-label">Operations</div>
         <div class="nav-item" onclick="go('booking',this)"><i class="fa-solid fa-calendar"></i> Asset Booking</div>
+        <div class="nav-item" onclick="go('communications',this)"><i class="fa-solid fa-bullhorn"></i> Communications</div>
         <div class="nav-item" onclick="go('governance',this)" style="justify-content:space-between"><span
             style="display:flex;align-items:center;gap:8px"><i class="fa-solid fa-shield-halved"></i>
             Governance</span><span
@@ -2719,6 +2736,95 @@
             email-based approvals. Full audit trail maintained.</div>
         </div>
 
+        <!-- ===== COMMUNICATIONS ===== -->
+        <div class="screen" id="s-communications">
+          <div class="page-header">
+            <div class="page-title">Communications</div>
+            <div class="page-subtitle">Platform announcements, news and updates for all BML participants</div>
+          </div>
+          <div class="filter-bar">
+            <input placeholder="Search announcements...">
+            <select>
+              <option>All types</option>
+              <option>Announcement</option>
+              <option>News</option>
+              <option>Maintenance</option>
+              <option>Achievement</option>
+            </select>
+          </div>
+
+          <!-- Blog released -->
+          <div class="card" style="margin-bottom:14px;border-left:3px solid #7c3aed">
+            <div style="display:flex;align-items:flex-start;gap:14px">
+              <div style="width:36px;height:36px;border-radius:50%;background:#f3e5f5;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fa-solid fa-rss" style="color:#7c3aed;font-size:14px"></i>
+              </div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                  <span style="font-size:12.5px;font-weight:600">New Blog Released — Innovation in the Age of AI</span>
+                  <span style="font-size:10px;background:#f3e5f5;color:#7c3aed;padding:2px 8px;border-radius:20px;font-weight:600">Blog</span>
+                </div>
+                <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.6">Read our latest blog on how BML projects are embracing AI-first approaches across IM stages. Featuring SmartFlex Pilot and GreenLoop as case highlights.</div>
+                <div style="margin-top:10px;display:flex;align-items:center;gap:10px">
+                  <button class="btn btn-sm" style="background:#7c3aed;color:#fff;border-color:#7c3aed"><i class="fa-solid fa-arrow-up-right-from-square" style="margin-right:5px"></i>Read Blog</button>
+                  <span style="font-size:10.5px;color:var(--text-tertiary)">Today · Published by BML Editorial</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Call4More opens -->
+          <div class="card" style="margin-bottom:14px;border-left:3px solid var(--blue-text)">
+            <div style="display:flex;align-items:flex-start;gap:14px">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--blue-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fa-solid fa-bullhorn" style="color:var(--blue-text);font-size:14px"></i>
+              </div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                  <span style="font-size:12.5px;font-weight:600">Call4More opens for submissions next week</span>
+                  <span style="font-size:10px;background:var(--blue-bg);color:var(--blue-text);padding:2px 8px;border-radius:20px;font-weight:600">Announcement</span>
+                </div>
+                <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.6">Scale-ready IM3+ projects can apply starting 1 Jul 2026. Reach out to your Campaign Manager for early access.</div>
+                <div style="margin-top:10px;font-size:10.5px;color:var(--text-tertiary)">2 days ago · Posted by IPM Team</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Maintenance -->
+          <div class="card" style="margin-bottom:14px;border-left:3px solid var(--border-dark)">
+            <div style="display:flex;align-items:flex-start;gap:14px">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--bg-secondary);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fa-solid fa-circle-info" style="color:var(--text-tertiary);font-size:14px"></i>
+              </div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                  <span style="font-size:12.5px;font-weight:600">Platform maintenance window — 22 Jun, 11 PM–1 AM IST</span>
+                  <span style="font-size:10px;background:var(--bg-secondary);color:var(--text-secondary);padding:2px 8px;border-radius:20px;font-weight:600;border:1px solid var(--border-light)">Maintenance</span>
+                </div>
+                <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.6">Cloud Sandbox and Asset Booking will be briefly unavailable during this window.</div>
+                <div style="margin-top:10px;font-size:10.5px;color:var(--text-tertiary)">5 days ago · Posted by Platform Admin</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GreenLoop achievement -->
+          <div class="card" style="margin-bottom:14px;border-left:3px solid var(--amber-text)">
+            <div style="display:flex;align-items:flex-start;gap:14px">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--amber-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fa-solid fa-trophy" style="color:var(--amber-text);font-size:14px"></i>
+              </div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                  <span style="font-size:12.5px;font-weight:600">GreenLoop reaches IM5 — congratulations to the team</span>
+                  <span style="font-size:10px;background:var(--amber-bg);color:var(--amber-text);padding:2px 8px;border-radius:20px;font-weight:600">Achievement</span>
+                </div>
+                <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.6">First Call4Ideas project to complete the full Explore → Build → Scale journey.</div>
+                <div style="margin-top:10px;font-size:10.5px;color:var(--text-tertiary)">1 week ago · Posted by IPM Team</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- ===== GOVERNANCE ===== -->
         <div class="screen" id="s-governance">
           <div class="page-header">
@@ -2957,21 +3063,28 @@
             <div class="page-subtitle">Accessible to IPM, Admin and Leadership roles only · Data-first design, minimal
               color, clear graphs</div>
           </div>
+
+          <!-- Filters -->
           <div class="filter-bar">
             <select>
               <option>Last 12 months</option>
               <option>Last 6 months</option>
               <option>2025</option>
+              <option>2024</option>
             </select>
             <select>
               <option>All BUs</option>
               <option>Manufacturing</option>
               <option>Mobility</option>
+              <option>Software &amp; Digital</option>
+              <option>Building Technology</option>
             </select>
             <select>
               <option>All campaigns</option>
               <option>Call4Ideas</option>
               <option>InnoAccel</option>
+              <option>Call4More</option>
+              <option>Call4Alliance</option>
             </select>
             <select>
               <option>All stages</option>
@@ -2981,165 +3094,197 @@
               <option>IM5</option>
             </select>
           </div>
+
+          <!-- ROW 1 — KPI Tiles (BRD: Stage distribution | Avg. time per stage | Total funding | Realized ROI | Active campaigns) -->
           <div class="kpi-row">
             <div class="kpi">
-              <div class="kpi-label">Total projects</div>
-              <div class="kpi-value">50</div>
+              <div class="kpi-label">Stage distribution</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;margin-top:8px">
+                <div style="font-size:12px">
+                  <span style="font-size:10px;color:var(--text-tertiary);font-weight:500;display:block;margin-bottom:1px">IM2</span>
+                  <strong style="font-size:18px;font-weight:700">24</strong>
+                </div>
+                <div style="font-size:12px">
+                  <span style="font-size:10px;color:var(--text-tertiary);font-weight:500;display:block;margin-bottom:1px">IM3</span>
+                  <strong style="font-size:18px;font-weight:700">13</strong>
+                </div>
+                <div style="font-size:12px">
+                  <span style="font-size:10px;color:var(--text-tertiary);font-weight:500;display:block;margin-bottom:1px">IM4</span>
+                  <strong style="font-size:18px;font-weight:700">9</strong>
+                </div>
+                <div style="font-size:12px">
+                  <span style="font-size:10px;color:var(--text-tertiary);font-weight:500;display:block;margin-bottom:1px">IM5</span>
+                  <strong style="font-size:18px;font-weight:700">4</strong>
+                </div>
+              </div>
+              <div class="kpi-delta" style="margin-top:8px">50 projects total</div>
             </div>
             <div class="kpi">
               <div class="kpi-label">Avg. time per stage</div>
               <div class="kpi-value">6.2 mo</div>
+              <div class="kpi-delta">↓ 0.4 mo vs last cohort</div>
             </div>
             <div class="kpi">
-              <div class="kpi-label">Total funding</div>
+              <div class="kpi-label">Total funding allocated</div>
               <div class="kpi-value">€2.4M</div>
+              <div class="kpi-delta">Across all active projects</div>
             </div>
             <div class="kpi">
               <div class="kpi-label">Realized ROI</div>
               <div class="kpi-value">€830k</div>
+              <div class="kpi-delta">IM4–IM5 projects</div>
             </div>
             <div class="kpi">
               <div class="kpi-label">Active campaigns</div>
               <div class="kpi-value">6</div>
+              <div class="kpi-delta">MNXT + BBM-IN</div>
             </div>
           </div>
-          <div class="three-col" style="margin-bottom:20px">
-            <div class="card">
-              <div class="section-title">Funding by stage</div>
-              <div class="bar-chart">
+
+          <!-- ROW 2 — Charts: Funding allocation by stage (bar) | Idea-to-scale funnel -->
+          <div class="two-col" style="margin-bottom:20px">
+            <div class="card" style="display:flex;flex-direction:column">
+              <div class="section-title">Funding allocation by stage</div>
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:space-around;padding:8px 0">
                 <div class="bar-row"><span class="bar-label">IM2</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:30%"></div>
-                  </div><span class="bar-val">€180k</span>
+                  <div class="bar-track" style="height:12px"><div class="bar-fill" style="width:19%"></div></div>
+                  <span class="bar-val">€180k</span>
                 </div>
                 <div class="bar-row"><span class="bar-label">IM3</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:55%"></div>
-                  </div><span class="bar-val">€620k</span>
+                  <div class="bar-track" style="height:12px"><div class="bar-fill" style="width:65%"></div></div>
+                  <span class="bar-val">€620k</span>
                 </div>
                 <div class="bar-row"><span class="bar-label">IM4</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:80%"></div>
-                  </div><span class="bar-val">€950k</span>
+                  <div class="bar-track" style="height:12px"><div class="bar-fill" style="width:100%"></div></div>
+                  <span class="bar-val">€950k</span>
                 </div>
                 <div class="bar-row"><span class="bar-label">IM5</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:55%"></div>
-                  </div><span class="bar-val">€650k</span>
+                  <div class="bar-track" style="height:12px"><div class="bar-fill" style="width:68%"></div></div>
+                  <span class="bar-val">€650k</span>
                 </div>
               </div>
+              <div style="font-size:10.5px;color:var(--text-tertiary);margin-top:8px;border-top:1px solid var(--border-light);padding-top:10px">Total allocated: <strong>€2.4M</strong> · Seed / A-Funding / B-Funding gates applied per stage</div>
             </div>
             <div class="card">
               <div class="section-title">Idea-to-scale funnel</div>
               <div class="funnel-step"><span>Submitted</span>
-                <div class="funnel-bar">
-                  <div class="funnel-fill" style="width:100%"></div>
-                </div><span>312</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width:100%"></div></div><span>312</span>
               </div>
               <div class="funnel-step"><span>Longlisted</span>
-                <div class="funnel-bar">
-                  <div class="funnel-fill" style="width:70%"></div>
-                </div><span>148</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width:47%"></div></div><span>148</span>
               </div>
               <div class="funnel-step"><span>Shortlisted</span>
-                <div class="funnel-bar">
-                  <div class="funnel-fill" style="width:40%"></div>
-                </div><span>88</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width:28%"></div></div><span>88</span>
               </div>
               <div class="funnel-step"><span>Funded</span>
-                <div class="funnel-bar">
-                  <div class="funnel-fill" style="width:20%"></div>
-                </div><span>37</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width:12%"></div></div><span>37</span>
               </div>
               <div class="funnel-step"><span>IM4+</span>
-                <div class="funnel-bar">
-                  <div class="funnel-fill" style="width:8%"></div>
-                </div><span>13</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width:4%"></div></div><span>13</span>
               </div>
+              <div style="font-size:10.5px;color:var(--text-tertiary);margin-top:10px">Conversion rate Submitted → IM4+: <strong>4.2%</strong></div>
             </div>
-            <div class="card">
+          </div>
+
+          <!-- ROW 3 — Performance Tables: Campaign performance table | Cohort performance table -->
+          <div class="two-col" style="margin-bottom:8px">
+            <div>
               <div class="section-title">Campaign performance</div>
-              <div class="bar-chart">
-                <div class="bar-row"><span class="bar-label">Call4Ideas</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:90%"></div>
-                  </div><span class="bar-val">14</span>
-                </div>
-                <div class="bar-row"><span class="bar-label">InnoAccel</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:65%"></div>
-                  </div><span class="bar-val">9</span>
-                </div>
-                <div class="bar-row"><span class="bar-label">Call4More</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:50%"></div>
-                  </div><span class="bar-val">7</span>
-                </div>
-                <div class="bar-row"><span class="bar-label">C4Alliance</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="width:36%"></div>
-                  </div><span class="bar-val">5</span>
-                </div>
+              <div class="card" style="padding:0;overflow:hidden">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Campaign</th>
+                      <th>Projects</th>
+                      <th>Funded</th>
+                      <th>IM4+</th>
+                      <th>Conversion</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight:500">Call4Ideas</td>
+                      <td>187</td>
+                      <td>14</td>
+                      <td>6</td>
+                      <td><span class="dot-green">● 7.5%</span></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:500">InnoAccel</td>
+                      <td>72</td>
+                      <td>9</td>
+                      <td>4</td>
+                      <td><span class="dot-green">● 5.6%</span></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:500">Call4More</td>
+                      <td>38</td>
+                      <td>7</td>
+                      <td>2</td>
+                      <td><span class="dot-amber">● 5.3%</span></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:500">Call4Alliance</td>
+                      <td>15</td>
+                      <td>5</td>
+                      <td>1</td>
+                      <td><span class="dot-amber">● 6.7%</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div>
+              <div class="section-title">Cohort performance</div>
+              <div class="card" style="padding:0;overflow:hidden">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Cohort</th>
+                      <th>Campaign</th>
+                      <th>Projects</th>
+                      <th>Avg. stage</th>
+                      <th>Progress</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight:500">2024-A</td>
+                      <td>InnoAccel</td>
+                      <td>9</td>
+                      <td><span class="badge badge-stage">IM4</span></td>
+                      <td><div style="width:100px"><div class="progress"><div class="progress-fill" style="width:90%"></div></div></div></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:500">2025-A</td>
+                      <td>Call4Ideas</td>
+                      <td>8</td>
+                      <td><span class="badge badge-stage">IM3</span></td>
+                      <td><div style="width:100px"><div class="progress"><div class="progress-fill" style="width:65%"></div></div></div></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:500">2025-B</td>
+                      <td>Call4Ideas</td>
+                      <td>6</td>
+                      <td><span class="badge badge-stage">IM2</span></td>
+                      <td><div style="width:100px"><div class="progress"><div class="progress-fill" style="width:30%"></div></div></div></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:500">2026-A</td>
+                      <td>Call4More</td>
+                      <td>TBD</td>
+                      <td style="color:var(--text-tertiary)">—</td>
+                      <td style="color:var(--text-tertiary);font-size:11px">Upcoming</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-          <div class="section-title">Cohort performance</div>
-          <div class="card" style="padding:0;overflow:hidden;margin-bottom:12px">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Cohort</th>
-                  <th>Campaign</th>
-                  <th>Projects</th>
-                  <th>Avg. stage</th>
-                  <th>Progress</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>2025-A</td>
-                  <td>Call4Ideas</td>
-                  <td>8</td>
-                  <td>IM3</td>
-                  <td>
-                    <div style="width:120px">
-                      <div class="progress">
-                        <div class="progress-fill" style="width:75%"></div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2025-B</td>
-                  <td>Call4Ideas</td>
-                  <td>6</td>
-                  <td>IM2</td>
-                  <td>
-                    <div style="width:120px">
-                      <div class="progress">
-                        <div class="progress-fill" style="width:40%"></div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2024-A</td>
-                  <td>InnoAccel</td>
-                  <td>9</td>
-                  <td>IM4</td>
-                  <td>
-                    <div style="width:120px">
-                      <div class="progress">
-                        <div class="progress-fill" style="width:90%"></div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+
+          <div style="display:flex;justify-content:flex-end;margin-top:4px">
+            <button class="btn btn-sm"><i class="fa-solid fa-download"></i> Export report</button>
           </div>
-          <div style="text-align:right"><button class="btn btn-sm"><i class="fa-solid fa-download"></i> Export
-              report</button></div>
         </div>
 
         <!-- ===== IPM WORKFLOW ===== -->
@@ -3677,6 +3822,7 @@
       home: 'Home', explore: 'Explore', build: 'Build Workspace', scale: 'Scale — Portfolio',
       campaigns: 'Campaigns', cohorts: 'Cohorts', repo: 'Repository', learning: 'Learning',
       sandbox: 'Cloud Sandbox', people: 'People — Expert Network', booking: 'Asset Booking',
+      communications: 'Communications',
       governance: 'Governance & Standards', insights: 'Insights / KPIs',
       ipm: 'IPM Workflow', submit: 'Submit Idea', profile: 'Profile', about: 'About / Help',
       admincampaign: 'Create Campaign — Admin'
