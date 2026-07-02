@@ -816,6 +816,69 @@
       background: var(--border-light);
       border-radius: 10px;
     }
+
+    /* APPROVAL COMMENT MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 17, 17, .45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-box {
+      background: var(--bg-primary);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      width: 420px;
+      max-width: 90vw;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .25);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    /* COMING SOON OVERLAY */
+    .coming-soon-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 500;
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(2px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .coming-soon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-med);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .coming-soon-text {
+      font-size: 12px;
+      color: var(--text-secondary);
+      max-width: 320px;
+    }
   </style>
 </head>
 
@@ -2403,12 +2466,9 @@
 
         <!-- ===== SANDBOX ===== -->
         <div class="screen" id="s-sandbox" style="position:relative">
-          <div
-            style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.65);backdrop-filter:blur(2px);display:flex;align-items:center;justify-content:center;z-index:10;border-radius:var(--radius-lg)">
-            <div
-              style="background:var(--primary);color:#000000;padding:12px 24px;border-radius:30px;font-weight:700;font-size:18px;letter-spacing:1px;box-shadow:0 4px 12px rgba(0,102,204,0.3)">
-              COMING SOON
-            </div>
+          <div class="coming-soon-overlay">
+            <div class="coming-soon-badge"><i class="fa-solid fa-hourglass-half"></i> Coming soon</div>
+            <div class="coming-soon-text">The Cloud Sandbox experience is being finalized.</div>
           </div>
           <div class="page-header">
             <div class="page-title">Cloud Sandbox</div>
@@ -2469,7 +2529,11 @@
         </div>
 
         <!-- ===== PEOPLE ===== -->
-        <div class="screen" id="s-people">
+        <div class="screen" id="s-people" style="position:relative">
+          <div class="coming-soon-overlay">
+            <div class="coming-soon-badge"><i class="fa-solid fa-hourglass-half"></i> Coming soon</div>
+            <div class="coming-soon-text">The People — Expert network experience is being finalized.</div>
+          </div>
           <div class="page-header">
             <div class="page-title">People — Expert network</div>
             <div class="page-subtitle">Discover and connect with experts across Bosch</div>
@@ -2960,8 +3024,10 @@
                     <td>Pitches</td>
                     <td style="font-size:11px">Panel review → Selected</td>
                     <td><span style="display:flex;gap:6px"><button
-                          class="btn btn-sm btn-success">Approve</button><button
-                          class="btn btn-sm btn-danger">Reject</button></span></td>
+                          class="btn btn-sm btn-success"
+                          onclick="openApprovalModal(this,'approve','FleetOps AI — Seed funding · €30,000')">Approve</button><button
+                          class="btn btn-sm btn-danger"
+                          onclick="openApprovalModal(this,'reject','FleetOps AI — Seed funding · €30,000')">Reject</button></span></td>
                   </tr>
                   <tr>
                     <td>EnergyMesh</td>
@@ -2970,8 +3036,10 @@
                     <td>Request submitted</td>
                     <td style="font-size:11px">Review → Approved/Rejected</td>
                     <td><span style="display:flex;gap:6px"><button
-                          class="btn btn-sm btn-success">Approve</button><button
-                          class="btn btn-sm btn-danger">Reject</button></span></td>
+                          class="btn btn-sm btn-success"
+                          onclick="openApprovalModal(this,'approve','EnergyMesh — A-Funding · €120,000')">Approve</button><button
+                          class="btn btn-sm btn-danger"
+                          onclick="openApprovalModal(this,'reject','EnergyMesh — A-Funding · €120,000')">Reject</button></span></td>
                   </tr>
                 </tbody>
               </table>
@@ -3003,8 +3071,10 @@
                     <td>Physical</td>
                     <td>Lab Manager / Admin</td>
                     <td><span style="display:flex;gap:6px"><button
-                          class="btn btn-sm btn-success">Approve</button><button
-                          class="btn btn-sm btn-danger">Reject</button></span></td>
+                          class="btn btn-sm btn-success"
+                          onclick="openApprovalModal(this,'approve','Arjun K. — Lab workstation A3 (BML-2025-031)')">Approve</button><button
+                          class="btn btn-sm btn-danger"
+                          onclick="openApprovalModal(this,'reject','Arjun K. — Lab workstation A3 (BML-2025-031)')">Reject</button></span></td>
                   </tr>
                 </tbody>
               </table>
@@ -3026,7 +3096,7 @@
                     <th>Reason</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="decision-log-body">
                   <tr>
                     <td style="font-size:11px;color:var(--text-tertiary)">2026-06-02 10:14</td>
                     <td>Sanjay R. (IPM)</td>
@@ -3289,12 +3359,9 @@
 
         <!-- ===== IPM WORKFLOW ===== -->
         <div class="screen" id="s-ipm" style="position:relative">
-          <div
-            style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.65);backdrop-filter:blur(2px);display:flex;align-items:center;justify-content:center;z-index:10;border-radius:var(--radius-lg)">
-            <div
-              style="background:var(--primary);color:#000000;padding:12px 24px;border-radius:30px;font-weight:700;font-size:18px;letter-spacing:1px;box-shadow:0 4px 12px rgba(0,102,204,0.3)">
-              COMING SOON
-            </div>
+          <div class="coming-soon-overlay">
+            <div class="coming-soon-badge"><i class="fa-solid fa-hourglass-half"></i> Coming soon</div>
+            <div class="coming-soon-text">The IPM Workflow experience is being finalized.</div>
           </div>
           <div class="page-header">
             <div class="page-title">IPM Workflow — Central Tool process screens</div>
@@ -3817,6 +3884,30 @@
     </div><!-- /main -->
   </div><!-- /app -->
 
+  <!-- ===== APPROVAL COMMENT MODAL ===== -->
+  <div class="modal-overlay" id="approval-modal" style="display:none"
+    onclick="if(event.target===this)closeApprovalModal()">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div id="approval-modal-title" style="font-size:15px;font-weight:600">Approve request</div>
+        <button class="btn btn-sm" style="border:none" onclick="closeApprovalModal()"><i
+            class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="approval-modal-context" style="font-size:12px;color:var(--text-secondary);margin-bottom:14px"></div>
+      <div class="form-group">
+        <label class="form-label">Comment <span style="color:var(--red-text)">*</span></label>
+        <textarea class="form-input" id="approval-modal-comment" style="min-height:90px;resize:vertical"
+          placeholder="Add a comment explaining this decision — required for the immutable decision log..."></textarea>
+        <div id="approval-modal-error" style="display:none;color:var(--red-text);font-size:11px;margin-top:4px">A
+          comment is required before this decision can be logged.</div>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:6px">
+        <button class="btn btn-sm" onclick="closeApprovalModal()">Cancel</button>
+        <button class="btn btn-sm" id="approval-modal-confirm" onclick="confirmApprovalAction()">Confirm</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     const screenTitles = {
       home: 'Home', explore: 'Explore', build: 'Build Workspace', scale: 'Scale — Portfolio',
@@ -3871,6 +3962,51 @@
       });
       const panel = document.getElementById(panelId);
       if (panel) panel.style.display = 'block';
+    }
+
+    let pendingApproval = null;
+
+    function openApprovalModal(btnEl, action, contextLabel) {
+      pendingApproval = { row: btnEl.closest('tr'), action, contextLabel };
+      document.getElementById('approval-modal-title').textContent = action === 'approve' ? 'Approve request' : 'Reject request';
+      document.getElementById('approval-modal-context').textContent = contextLabel;
+      document.getElementById('approval-modal-comment').value = '';
+      document.getElementById('approval-modal-error').style.display = 'none';
+      const confirmBtn = document.getElementById('approval-modal-confirm');
+      confirmBtn.className = 'btn btn-sm ' + (action === 'approve' ? 'btn-success' : 'btn-danger');
+      confirmBtn.textContent = action === 'approve' ? 'Confirm approval' : 'Confirm rejection';
+      document.getElementById('approval-modal').style.display = 'flex';
+    }
+
+    function closeApprovalModal() {
+      document.getElementById('approval-modal').style.display = 'none';
+      pendingApproval = null;
+    }
+
+    function confirmApprovalAction() {
+      if (!pendingApproval) return;
+      const comment = document.getElementById('approval-modal-comment').value.trim();
+      if (!comment) {
+        document.getElementById('approval-modal-error').style.display = 'block';
+        return;
+      }
+      const { row, action, contextLabel } = pendingApproval;
+      const isApprove = action === 'approve';
+      const actionCell = row.querySelector('td:last-child');
+      actionCell.innerHTML = '<span class="' + (isApprove ? 'dot-green' : 'dot-red') + '">● ' + (isApprove ? 'Approved' : 'Rejected') + '</span>';
+
+      const logBody = document.getElementById('decision-log-body');
+      if (logBody) {
+        const tr = document.createElement('tr');
+        const ts = new Date().toISOString().slice(0, 16).replace('T', ' ');
+        tr.innerHTML = '<td style="font-size:11px;color:var(--text-tertiary)">' + ts + '</td>' +
+          '<td>You</td>' +
+          '<td><span class="' + (isApprove ? 'dot-green' : 'dot-red') + '">● ' + (isApprove ? 'Approved' : 'Rejected') + '</span></td>' +
+          '<td>' + contextLabel + '</td>' +
+          '<td style="font-size:11px;color:var(--text-secondary)">' + comment + '</td>';
+        logBody.prepend(tr);
+      }
+      closeApprovalModal();
     }
 
     function selectCampaign(name) {
