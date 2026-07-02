@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bosch Momentum Lab — Wireframe Prototype</title>
+  <title>Bosch Momentum Lab - Wireframe Prototype</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap');
@@ -135,6 +135,31 @@
       font-size: 14px;
       width: 16px;
       text-align: center;
+    }
+
+    .nav-subitem {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px 6px 40px;
+      cursor: pointer;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      border-left: 2px solid transparent;
+      transition: all .12s;
+      user-select: none;
+    }
+
+    .nav-subitem:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    .nav-subitem.active {
+      color: var(--primary);
+      background: var(--primary-soft);
+      border-left-color: var(--primary);
+      font-weight: 600;
     }
 
     /* MAIN */
@@ -913,7 +938,7 @@
 
       <div class="nav-section">
         <div class="nav-label">Admin <span
-            style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-tertiary)">— Campaign Mgr /
+            style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-tertiary)">- Campaign Mgr /
             Admin</span></div>
         <div class="nav-item" onclick="go('admincampaign',this)"><i class="fa-solid fa-square-plus"></i> Create Campaign
         </div>
@@ -930,6 +955,8 @@
       <div class="nav-section">
         <div class="nav-label">Operations</div>
         <div class="nav-item" onclick="go('booking',this)"><i class="fa-solid fa-calendar"></i> Asset Booking</div>
+        <div class="nav-subitem" onclick="go('booking-approval',this)">Approval logic</div>
+        <div class="nav-subitem" onclick="go('booking-requests',this)">My booking requests</div>
         <div class="nav-item" onclick="go('communications',this)"><i class="fa-solid fa-bullhorn"></i> Communications</div>
         <div class="nav-item" onclick="go('governance',this)" style="justify-content:space-between"><span
             style="display:flex;align-items:center;gap:8px"><i class="fa-solid fa-shield-halved"></i>
@@ -984,7 +1011,7 @@
             <div class="kpi">
               <div class="kpi-label">Active explorations</div>
               <div class="kpi-value">24</div>
-              <div class="kpi-delta">IM2 — early ideas</div>
+              <div class="kpi-delta">IM2 - early ideas</div>
             </div>
             <div class="kpi">
               <div class="kpi-label">Funded experiments</div>
@@ -1024,7 +1051,7 @@
               style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border-light)">
               <i class="fa-solid fa-circle-info" style="color:var(--text-tertiary);font-size:14px;margin-top:2px"></i>
               <div style="flex:1">
-                <div style="font-size:12.5px;font-weight:600">Platform maintenance window — 22 Jun, 11 PM–1 AM IST</div>
+                <div style="font-size:12.5px;font-weight:600">Platform maintenance window - 22 Jun, 11 PM–1 AM IST</div>
                 <div style="font-size:11.5px;color:var(--text-secondary);margin-top:2px">Cloud Sandbox and Asset Booking
                   will be briefly unavailable during this window.</div>
               </div>
@@ -1033,7 +1060,7 @@
             <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px">
               <i class="fa-solid fa-trophy" style="color:var(--amber-text);font-size:14px;margin-top:2px"></i>
               <div style="flex:1">
-                <div style="font-size:12.5px;font-weight:600">GreenLoop reaches IM5 — congratulations to the team</div>
+                <div style="font-size:12.5px;font-weight:600">GreenLoop reaches IM5 - congratulations to the team</div>
                 <div style="font-size:11.5px;color:var(--text-secondary);margin-top:2px">First Call4Ideas project to
                   complete the full Explore → Build → Scale journey.</div>
               </div>
@@ -1043,7 +1070,7 @@
 
           <div class="two-col">
             <div>
-              <div class="section-title">Ideas that just moved forward — recent IM progressions</div>
+              <div class="section-title">Ideas that just moved forward - recent IM progressions</div>
               <div class="card" style="padding:0;overflow:hidden">
                 <table class="table">
                   <thead>
@@ -1106,17 +1133,17 @@
               <div class="section-title" style="margin-top:20px">Pending governance actions</div>
               <div
                 style="background:var(--amber-bg);border:1px solid #ffe0b2;border-radius:var(--radius-md);padding:8px 12px;font-size:12px;color:var(--amber-text);margin-bottom:7px">
-                <i class="fa-solid fa-triangle-exclamation"></i>&nbsp; SmartFlex — Stage advancement pending IPM review
+                <i class="fa-solid fa-triangle-exclamation"></i>&nbsp; SmartFlex - Stage advancement pending IPM review
               </div>
               <div
                 style="background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:8px 12px;font-size:12px;color:var(--text-secondary);margin-bottom:7px">
-                <i class="fa-solid fa-clock"></i>&nbsp; FleetOps AI — Seed funding approval awaited
+                <i class="fa-solid fa-clock"></i>&nbsp; FleetOps AI - Seed funding approval awaited
               </div>
               <button class="btn btn-sm" style="width:100%;justify-content:center" onclick="go('governance',null)">View
                 all → Governance</button>
             </div>
             <div>
-              <div class="section-title">Active explorations (IM2 — early ideas)</div>
+              <div class="section-title">Active explorations (IM2 - early ideas)</div>
               <div class="card-sm" style="margin-bottom:10px" onclick="go('explore',null)">
                 <div class="flex-between">
                   <div class="card-title">EnergyMesh Grid Optimizer</div><span class="badge badge-stage">IM2</span>
@@ -1204,7 +1231,7 @@
               <div class="divider"></div>
               <div style="display:flex;gap:6px;flex-wrap:wrap">
                 <button class="btn btn-sm" onclick="event.stopPropagation()"
-                  title="Like — enabled when a milestone is hit"><i class="fa-solid fa-thumbs-up"></i> 12</button>
+                  title="Like - enabled when a milestone is hit"><i class="fa-solid fa-thumbs-up"></i> 12</button>
                 <button class="btn btn-sm" onclick="event.stopPropagation()"
                   title="Shows ideator/innovator names. Grants resource access upon addition.">Contribute</button>
                 <button class="btn btn-sm btn-primary" onclick="event.stopPropagation();go('governance',null)"
@@ -1234,7 +1261,7 @@
               <div class="divider"></div>
               <div style="display:flex;gap:6px;flex-wrap:wrap">
                 <button class="btn btn-sm" onclick="event.stopPropagation()"
-                  title="Like — enabled when a milestone is hit"><i class="fa-solid fa-thumbs-up"></i> 8</button>
+                  title="Like - enabled when a milestone is hit"><i class="fa-solid fa-thumbs-up"></i> 8</button>
                 <button class="btn btn-sm" onclick="event.stopPropagation()"
                   title="Shows ideator/innovator names. Grants resource access upon addition.">Contribute</button>
                 <button class="btn btn-sm btn-primary" onclick="event.stopPropagation();go('governance',null)"
@@ -1263,7 +1290,7 @@
               <div class="divider"></div>
               <div style="display:flex;gap:6px;flex-wrap:wrap">
                 <button class="btn btn-sm" onclick="event.stopPropagation()"
-                  title="Like — enabled when a milestone is hit"><i class="fa-solid fa-thumbs-up"></i> 21</button>
+                  title="Like - enabled when a milestone is hit"><i class="fa-solid fa-thumbs-up"></i> 21</button>
                 <button class="btn btn-sm" onclick="event.stopPropagation()"
                   title="Shows ideator/innovator names. Grants resource access upon addition.">Contribute</button>
                 <button class="btn btn-sm btn-primary" onclick="event.stopPropagation();go('governance',null)"
@@ -1282,7 +1309,7 @@
                 <div class="card-title">CarbonTrace</div><span class="badge badge-stage">IM2</span>
               </div>
               <div style="font-size:11px;color:var(--text-tertiary);font-style:italic;margin-bottom:5px">Why it matters:
-                ESG reporting lacks real-time internal carbon data — compliance risk growing.</div>
+                ESG reporting lacks real-time internal carbon data - compliance risk growing.</div>
               <div style="font-size:11px;color:var(--text-secondary);margin-bottom:2px">Program:
                 <strong>Call4Ideas</strong> · KPI: <strong>Learning</strong>
               </div>
@@ -1292,7 +1319,7 @@
               <div class="divider"></div>
               <div style="display:flex;gap:6px;flex-wrap:wrap">
                 <button class="btn btn-sm" onclick="event.stopPropagation()"
-                  title="Like — enabled when a milestone is hit"><i class="fa-solid fa-thumbs-up"></i> 5</button>
+                  title="Like - enabled when a milestone is hit"><i class="fa-solid fa-thumbs-up"></i> 5</button>
                 <button class="btn btn-sm" onclick="event.stopPropagation()"
                   title="Shows ideator/innovator names. Grants resource access upon addition.">Contribute</button>
                 <button class="btn btn-sm btn-primary" onclick="event.stopPropagation();go('governance',null)"
@@ -1321,7 +1348,7 @@
               <div class="divider"></div>
               <div style="display:flex;gap:6px;flex-wrap:wrap">
                 <button class="btn btn-sm" onclick="event.stopPropagation()"
-                  title="Like — enabled when a milestone is hit"><i class="fa-solid fa-thumbs-up"></i> 17</button>
+                  title="Like - enabled when a milestone is hit"><i class="fa-solid fa-thumbs-up"></i> 17</button>
                 <button class="btn btn-sm" onclick="event.stopPropagation()"
                   title="Shows ideator/innovator names. Grants resource access upon addition.">Contribute</button>
                 <button class="btn btn-sm btn-primary" onclick="event.stopPropagation();go('governance',null)"
@@ -1350,7 +1377,7 @@
               <div class="divider"></div>
               <div style="display:flex;gap:6px;flex-wrap:wrap">
                 <button class="btn btn-sm" onclick="event.stopPropagation()"
-                  title="Like — enabled when a milestone is hit"><i class="fa-solid fa-thumbs-up"></i> 30</button>
+                  title="Like - enabled when a milestone is hit"><i class="fa-solid fa-thumbs-up"></i> 30</button>
                 <button class="btn btn-sm" onclick="event.stopPropagation()"
                   title="Shows ideator/innovator names. Grants resource access upon addition.">Contribute</button>
                 <button class="btn btn-sm btn-primary" onclick="event.stopPropagation();go('governance',null)"
@@ -1366,7 +1393,7 @@
             </div>
           </div>
 
-          <div class="section-title">Explore — early KPIs &amp; visibility</div>
+          <div class="section-title">Explore - early KPIs &amp; visibility</div>
           <div class="card" style="padding:0;overflow:hidden">
             <table class="table">
               <thead>
@@ -1379,7 +1406,7 @@
               <tbody>
                 <tr>
                   <td>Project Funded</td>
-                  <td style="font-size:11px;color:var(--text-secondary)">Boolean — has seed funding been allocated</td>
+                  <td style="font-size:11px;color:var(--text-secondary)">Boolean - has seed funding been allocated</td>
                   <td style="font-size:11px">Contributor, IPM</td>
                 </tr>
                 <tr>
@@ -1414,7 +1441,7 @@
           <div id="build-campaigns-view">
             <div class="page-header">
               <div class="page-title">Build</div>
-              <div class="page-subtitle">Active campaigns — select a campaign to view your project workspace</div>
+              <div class="page-subtitle">Active campaigns - select a campaign to view your project workspace</div>
             </div>
             <div class="card-grid">
               <div class="card-sm" onclick="showBuildDetail()" style="cursor:pointer">
@@ -1492,7 +1519,7 @@
             </div>
             <div style="display:grid;grid-template-columns:1fr 1.2fr 0.9fr;gap:14px">
               <div>
-                <div class="section-title">Left panel — project detail</div>
+                <div class="section-title">Left panel - project detail</div>
                 <div class="card">
                   <div class="flex-between" style="margin-bottom:14px">
                     <div style="font-weight:600;font-size:14px">SmartFlex Pilot</div>
@@ -1547,9 +1574,9 @@
                 </div>
               </div>
               <div>
-                <div class="section-title">Centre — KPI evolution, cohort, mentors</div>
+                <div class="section-title">Centre - KPI evolution, cohort, mentors</div>
                 <div class="card">
-                  <div class="section-title">KPI evolution board — Learning → Performance</div>
+                  <div class="section-title">KPI evolution board - Learning → Performance</div>
                   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px">
                     <div
                       style="background:var(--bg-secondary);border-radius:var(--radius-md);padding:10px;border:1px solid var(--border-light)">
@@ -1596,7 +1623,7 @@
                 </div>
               </div>
               <div>
-                <div class="section-title">Right panel — resources &amp; governance</div>
+                <div class="section-title">Right panel - resources &amp; governance</div>
                 <div class="panel">
                   <div class="section-title">Resources</div>
                   <button class="btn btn-sm" style="width:100%;justify-content:center;margin-bottom:7px"
@@ -1607,11 +1634,11 @@
                       class="fa-solid fa-calendar"></i> Asset booking shortcut</button>
                 </div>
                 <div class="panel">
-                  <div class="section-title">Governance — ready to move forward?</div>
+                  <div class="section-title">Governance - ready to move forward?</div>
                   <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:12px"
                     onclick="go('governance',null)"><i class="fa-solid fa-arrow-right"></i> Request next stage</button>
                   <div style="font-size:11px;color:var(--text-tertiary);margin-top:8px;line-height:1.5">Triggers
-                    governance workflow — complete all milestones first.</div>
+                    governance workflow - complete all milestones first.</div>
                 </div>
               </div>
             </div>
@@ -1625,7 +1652,7 @@
           <div id="scale-campaigns-view">
             <div class="page-header">
               <div class="page-title">Scale</div>
-              <div class="page-subtitle">Active campaigns — select a campaign to view portfolio intelligence</div>
+              <div class="page-subtitle">Active campaigns - select a campaign to view portfolio intelligence</div>
             </div>
             <div class="card-grid">
               <div class="card-sm" onclick="showScaleDetail()" style="cursor:pointer">
@@ -1648,7 +1675,7 @@
                   <div class="card-title">InnoAccel</div><span class="badge badge-active">Active</span>
                 </div>
                 <div style="font-size:11px;color:var(--text-tertiary);font-style:italic;margin-bottom:5px">Accelerated
-                  program projects scaling through IM4 — venture clienting and partnerships.</div>
+                  program projects scaling through IM4 - venture clienting and partnerships.</div>
                 <div style="font-size:11px;color:var(--text-secondary);margin-bottom:2px">IM4+ projects:
                   <strong>4</strong> · Investment: <strong>€180k</strong>
                 </div>
@@ -1661,7 +1688,7 @@
                   <div class="card-title">Call4More</div><span class="badge badge-active">Active</span>
                 </div>
                 <div style="font-size:11px;color:var(--text-tertiary);font-style:italic;margin-bottom:5px">Scale-up of
-                  proven concepts — venture clienting and strategic alliances at IM5.</div>
+                  proven concepts - venture clienting and strategic alliances at IM5.</div>
                 <div style="font-size:11px;color:var(--text-secondary);margin-bottom:2px">IM4+ projects:
                   <strong>3</strong> · Investment: <strong>€210k</strong>
                 </div>
@@ -1694,7 +1721,7 @@
               </div>
               <div class="flex-between">
                 <div>
-                  <div class="page-title">Scale — Portfolio intelligence</div>
+                  <div class="page-title">Scale - Portfolio intelligence</div>
                   <div class="page-subtitle">IM4 → IM5 · Leadership visibility layer</div>
                 </div>
                 <div style="display:flex;gap:7px">
@@ -1886,7 +1913,7 @@
             <div class="flex-between">
               <div>
                 <div class="page-title">Campaigns</div>
-                <div class="page-subtitle">Strategic thematic initiatives — organize projects, do not replace lifecycle
+                <div class="page-subtitle">Strategic thematic initiatives - organize projects, do not replace lifecycle
                   stages</div>
               </div>
               <button class="btn btn-primary" onclick="go('admincampaign',null)"><i class="fa-solid fa-square-plus"></i>
@@ -1899,7 +1926,7 @@
             roles only. All other users see the campaign grid below.
           </div>
 
-          <div class="section-title">MNXT inhouse campaigns — Call4Ideas, Call4More, Call4Alliance, Call4Projects</div>
+          <div class="section-title">MNXT inhouse campaigns - Call4Ideas, Call4More, Call4Alliance, Call4Projects</div>
 
           <div class="card" style="margin-bottom:14px">
             <div class="flex-between" style="margin-bottom:6px">
@@ -1921,8 +1948,8 @@
             <div style="font-size:12px;color:var(--text-secondary)">Start: 1 Jan 2026 · Key milestone: Demo day 15 Aug
               2026 · End: 31 Aug 2026 · <span class="dot-green">● Active</span></div>
             <div class="section-title" style="margin-top:10px">Active projects</div>
-            <div class="pill-row"><span class="pill">EnergyMesh — IM2</span><span class="pill">SmartFlex Pilot —
-                IM3</span><span class="pill">CarbonTrace — IM2</span></div>
+            <div class="pill-row"><span class="pill">EnergyMesh - IM2</span><span class="pill">SmartFlex Pilot -
+                IM3</span><span class="pill">CarbonTrace - IM2</span></div>
             <div class="divider"></div>
             <button class="btn btn-sm btn-primary" onclick="go('submit',null)"><i class="fa-solid fa-lightbulb"></i>
               Submit idea / project under this campaign</button>
@@ -1981,10 +2008,10 @@
           </div>
 
           <div class="section-title">Other BBM-IN campaigns <span
-              style="font-weight:400;color:var(--text-tertiary);text-transform:none;font-size:11px">— Phase 2</span>
+              style="font-weight:400;color:var(--text-tertiary);text-transform:none;font-size:11px">- Phase 2</span>
           </div>
           <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:10px">BBM-IN campaigns do not carry Cohort
-            or KPI tracking in BML — these are managed externally. Timeline shows start/end dates only, no milestone
+            or KPI tracking in BML - these are managed externally. Timeline shows start/end dates only, no milestone
             detail.</div>
           <div class="card-grid">
             <div class="card-sm">
@@ -2041,7 +2068,7 @@
                     class="form-input" style="min-height:75px"
                     placeholder="What is this campaign about? What kind of ideas is it looking for?"></textarea></div>
                 <div class="form-group"><label class="form-label">Strategic search field / focus areas</label><input
-                    class="form-input" placeholder="Type a focus area and press Enter — e.g. Sustainable manufacturing">
+                    class="form-input" placeholder="Type a focus area and press Enter - e.g. Sustainable manufacturing">
                   <div class="pill-row"><span class="pill">Sustainable manufacturing <i class="fa-solid fa-xmark"
                         style="margin-left:4px;cursor:pointer"></i></span><span class="pill">AI-driven quality <i
                         class="fa-solid fa-xmark" style="margin-left:4px;cursor:pointer"></i></span></div>
@@ -2056,9 +2083,9 @@
                   <div class="form-group"><label class="form-label">End date</label><input type="date"
                       class="form-input"></div>
                 </div>
-                <div class="form-group"><label class="form-label">Key milestone (optional — MNXT campaigns
+                <div class="form-group"><label class="form-label">Key milestone (optional - MNXT campaigns
                     only)</label><input type="date" class="form-input"></div>
-                <div style="font-size:10px;color:var(--text-tertiary)">BBM-IN campaigns show start/end dates only — no
+                <div style="font-size:10px;color:var(--text-tertiary)">BBM-IN campaigns show start/end dates only - no
                   milestone breakdown, per spec.</div>
               </div>
 
@@ -2107,7 +2134,7 @@
             </div>
           </div>
 
-          <div class="section-title" style="margin-top:24px">Existing campaigns — manage</div>
+          <div class="section-title" style="margin-top:24px">Existing campaigns - manage</div>
           <div class="card" style="padding:0;overflow:hidden">
             <table class="table">
               <thead>
@@ -2264,7 +2291,7 @@
               <div>
                 <div class="panel">
                   <div class="section-title">Innovators</div>
-                  <div style="font-size:12px;color:var(--text-secondary)">8 innovators across 6 projects — names, roles
+                  <div style="font-size:12px;color:var(--text-secondary)">8 innovators across 6 projects - names, roles
                   </div>
                   <button class="btn btn-sm" style="margin-top:8px;width:100%;justify-content:center"
                     onclick="go('people',null)">View all profiles</button>
@@ -2330,83 +2357,100 @@
             </select>
             <button class="btn btn-sm"><i class="fa-solid fa-calendar"></i> Date range</button>
           </div>
-          <div class="card" style="padding:0;overflow:hidden">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Type</th>
-                  <th>BU</th>
-                  <th>Date</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="font-weight:500"><i class="fa-solid fa-folder"
-                      style="color:#fbc02d;margin-right:6px"></i>Project templates</td>
-                  <td>Folder</td>
-                  <td>All BUs</td>
-                  <td>—</td>
-                  <td><button class="btn btn-sm"><i class="fa-solid fa-eye"></i> Preview</button></td>
-                </tr>
-                <tr>
-                  <td style="font-weight:500"><i class="fa-solid fa-folder"
-                      style="color:#fbc02d;margin-right:6px"></i>Legal &amp; Compliance</td>
-                  <td>Folder</td>
-                  <td>All BUs</td>
-                  <td>—</td>
-                  <td><button class="btn btn-sm"><i class="fa-solid fa-eye"></i> Preview</button></td>
-                </tr>
-                <tr>
-                  <td style="font-weight:500"><i class="fa-solid fa-folder"
-                      style="color:#fbc02d;margin-right:6px"></i>Manufacturing Pilot Reports 2023-2024</td>
-                  <td>Folder</td>
-                  <td>Manufacturing</td>
-                  <td>—</td>
-                  <td><button class="btn btn-sm"><i class="fa-solid fa-eye"></i> Preview</button></td>
-                </tr>
-                <td><i class="fa-solid fa-file-lines" style="color:var(--text-tertiary);margin-right:6px"></i>IoT
-                  Pilot Report — Rexroth 2024</td>
-                <td>Pilot report</td>
-                <td>Manufacturing</td>
-                <td>Mar 2024</td>
-                <td><button class="btn btn-sm"><i class="fa-solid fa-eye"></i> Preview</button></td>
-                </tr>
-                <tr>
-                  <td><i class="fa-solid fa-file-lines" style="color:var(--text-tertiary);margin-right:6px"></i>Legal
-                    template: Startup NDA v3</td>
-                  <td>Legal</td>
-                  <td>All BUs</td>
-                  <td>Jan 2025</td>
-                  <td><button class="btn btn-sm"><i class="fa-solid fa-eye"></i> Preview</button></td>
-                </tr>
-                <tr>
-                  <td><i class="fa-solid fa-file-lines" style="color:var(--text-tertiary);margin-right:6px"></i>Customer
-                    Discovery Guide</td>
-                  <td>Case study</td>
-                  <td>Mobility</td>
-                  <td>Nov 2024</td>
-                  <td><button class="btn btn-sm"><i class="fa-solid fa-eye"></i> Preview</button></td>
-                </tr>
-                <tr>
-                  <td><i class="fa-solid fa-file-lines" style="color:var(--text-tertiary);margin-right:6px"></i>IM Stage
-                    Gate Handbook</td>
-                  <td>Technical</td>
-                  <td>All BUs</td>
-                  <td>Feb 2025</td>
-                  <td><button class="btn btn-sm"><i class="fa-solid fa-eye"></i> Preview</button></td>
-                </tr>
-                <tr>
-                  <td><i class="fa-solid fa-file-lines" style="color:var(--text-tertiary);margin-right:6px"></i>UX
-                    Research — B2B Interfaces</td>
-                  <td>UX study</td>
-                  <td>Software</td>
-                  <td>Aug 2024</td>
-                  <td><button class="btn btn-sm"><i class="fa-solid fa-eye"></i> Preview</button></td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="section-title">Folders</div>
+          <div class="card-grid">
+            <div class="card-sm">
+              <div class="flex-between" style="margin-bottom:5px">
+                <div class="card-title"><i class="fa-solid fa-folder" style="color:#fbc02d;margin-right:6px"></i>Project
+                  templates</div>
+              </div>
+              <div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">All BUs</div>
+              <div class="pill-row"><span class="pill">Folder</span></div>
+              <div class="divider"></div>
+              <button class="btn btn-sm" style="width:100%;justify-content:center"><i class="fa-solid fa-eye"></i>
+                Preview</button>
+            </div>
+            <div class="card-sm">
+              <div class="flex-between" style="margin-bottom:5px">
+                <div class="card-title"><i class="fa-solid fa-folder" style="color:#fbc02d;margin-right:6px"></i>Legal
+                  &amp; Compliance</div>
+              </div>
+              <div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">All BUs</div>
+              <div class="pill-row"><span class="pill">Folder</span></div>
+              <div class="divider"></div>
+              <button class="btn btn-sm" style="width:100%;justify-content:center"><i class="fa-solid fa-eye"></i>
+                Preview</button>
+            </div>
+            <div class="card-sm">
+              <div class="flex-between" style="margin-bottom:5px">
+                <div class="card-title"><i class="fa-solid fa-folder" style="color:#fbc02d;margin-right:6px"></i>Manufacturing
+                  Pilot Reports 2023-2024</div>
+              </div>
+              <div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">Manufacturing</div>
+              <div class="pill-row"><span class="pill">Folder</span></div>
+              <div class="divider"></div>
+              <button class="btn btn-sm" style="width:100%;justify-content:center"><i class="fa-solid fa-eye"></i>
+                Preview</button>
+            </div>
+          </div>
+
+          <div class="section-title" style="margin-top:20px">Files</div>
+          <div class="card-grid">
+            <div class="card-sm">
+              <div class="flex-between" style="margin-bottom:5px">
+                <div class="card-title"><i class="fa-solid fa-file-lines"
+                    style="color:var(--text-tertiary);margin-right:6px"></i>IoT Pilot Report - Rexroth 2024</div>
+              </div>
+              <div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">Manufacturing · Mar 2024</div>
+              <div class="pill-row"><span class="pill">Pilot report</span></div>
+              <div class="divider"></div>
+              <button class="btn btn-sm" style="width:100%;justify-content:center"><i class="fa-solid fa-eye"></i>
+                Preview</button>
+            </div>
+            <div class="card-sm">
+              <div class="flex-between" style="margin-bottom:5px">
+                <div class="card-title"><i class="fa-solid fa-file-lines"
+                    style="color:var(--text-tertiary);margin-right:6px"></i>Legal template: Startup NDA v3</div>
+              </div>
+              <div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">All BUs · Jan 2025</div>
+              <div class="pill-row"><span class="pill">Legal</span></div>
+              <div class="divider"></div>
+              <button class="btn btn-sm" style="width:100%;justify-content:center"><i class="fa-solid fa-eye"></i>
+                Preview</button>
+            </div>
+            <div class="card-sm">
+              <div class="flex-between" style="margin-bottom:5px">
+                <div class="card-title"><i class="fa-solid fa-file-lines"
+                    style="color:var(--text-tertiary);margin-right:6px"></i>Customer Discovery Guide</div>
+              </div>
+              <div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">Mobility · Nov 2024</div>
+              <div class="pill-row"><span class="pill">Case study</span></div>
+              <div class="divider"></div>
+              <button class="btn btn-sm" style="width:100%;justify-content:center"><i class="fa-solid fa-eye"></i>
+                Preview</button>
+            </div>
+            <div class="card-sm">
+              <div class="flex-between" style="margin-bottom:5px">
+                <div class="card-title"><i class="fa-solid fa-file-lines"
+                    style="color:var(--text-tertiary);margin-right:6px"></i>IM Stage Gate Handbook</div>
+              </div>
+              <div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">All BUs · Feb 2025</div>
+              <div class="pill-row"><span class="pill">Technical</span></div>
+              <div class="divider"></div>
+              <button class="btn btn-sm" style="width:100%;justify-content:center"><i class="fa-solid fa-eye"></i>
+                Preview</button>
+            </div>
+            <div class="card-sm">
+              <div class="flex-between" style="margin-bottom:5px">
+                <div class="card-title"><i class="fa-solid fa-file-lines"
+                    style="color:var(--text-tertiary);margin-right:6px"></i>UX Research - B2B Interfaces</div>
+              </div>
+              <div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">Software · Aug 2024</div>
+              <div class="pill-row"><span class="pill">UX study</span></div>
+              <div class="divider"></div>
+              <button class="btn btn-sm" style="width:100%;justify-content:center"><i class="fa-solid fa-eye"></i>
+                Preview</button>
+            </div>
           </div>
         </div>
 
@@ -2472,7 +2516,7 @@
           </div>
           <div class="page-header">
             <div class="page-title">Cloud Sandbox</div>
-            <div class="page-subtitle">API docs, integration guides, dataset access — linked to Project ID</div>
+            <div class="page-subtitle">API docs, integration guides, dataset access - linked to Project ID</div>
           </div>
           <div
             style="background:var(--amber-bg);border:1px solid #ffe0b2;border-radius:var(--radius-md);padding:8px 12px;font-size:12px;color:var(--amber-text);margin-bottom:14px">
@@ -2532,14 +2576,14 @@
         <div class="screen" id="s-people" style="position:relative">
           <div class="coming-soon-overlay">
             <div class="coming-soon-badge"><i class="fa-solid fa-hourglass-half"></i> Coming soon</div>
-            <div class="coming-soon-text">The People — Expert network experience is being finalized.</div>
+            <div class="coming-soon-text">The People - Expert network experience is being finalized.</div>
           </div>
           <div class="page-header">
-            <div class="page-title">People — Expert network</div>
+            <div class="page-title">People - Expert network</div>
             <div class="page-subtitle">Discover and connect with experts across Bosch</div>
             <div
               style="background:var(--amber-bg);border:1px solid #ffe0b2;border-radius:var(--radius-md);padding:8px 12px;font-size:12px;color:var(--amber-text);margin-bottom:14px">
-              <i class="fa-solid fa-lock"></i>&nbsp; Structured collaboration — available to contributors upon project
+              <i class="fa-solid fa-lock"></i>&nbsp; Structured collaboration - available to contributors upon project
               addition (Project ID linked)
             </div>
           </div>
@@ -2645,7 +2689,7 @@
         <div class="screen" id="s-booking">
           <div class="page-header">
             <div class="page-title">Asset booking</div>
-            <div class="page-subtitle">Physical and digital assets — all bookings linked to a Project ID (mandatory)
+            <div class="page-subtitle">Physical and digital assets - all bookings linked to a Project ID (mandatory)
             </div>
           </div>
           <div class="filter-bar">
@@ -2728,13 +2772,23 @@
                 <div class="card-title">3D Printer Lab</div><span class="badge badge-closed">Booked</span>
               </div>
               <div style="font-size:11px;color:var(--text-tertiary);margin:4px 0">Physical · Lab equipment</div>
-              <div class="card-body">SLA 3D printer — booked until Jun 8, 2026</div>
+              <div class="card-body">SLA 3D printer - booked until Jun 8, 2026</div>
               <div class="divider"></div>
               <button class="btn btn-sm" style="width:100%;justify-content:center;opacity:.4"
                 disabled>Unavailable</button>
             </div>
           </div>
-          <div class="section-title">Approval logic</div>
+        </div>
+
+        <!-- ===== ASSET BOOKING - APPROVAL LOGIC ===== -->
+        <div class="screen" id="s-booking-approval">
+          <div class="page-header">
+            <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:6px">
+              <span style="color:var(--text-secondary);cursor:pointer" onclick="go('booking',null)">← Asset
+                Booking</span></div>
+            <div class="page-title">Approval logic</div>
+            <div class="page-subtitle">How asset, funding, and resource requests are routed and approved</div>
+          </div>
           <div class="card" style="padding:0;overflow:hidden;margin-bottom:20px">
             <table class="table">
               <thead>
@@ -2758,14 +2812,27 @@
                 </tr>
                 <tr>
                   <td>Resource access (People)</td>
-                  <td style="font-size:11px;color:var(--text-secondary)">Available to all innovators once selected — no
+                  <td style="font-size:11px;color:var(--text-secondary)">Available to all innovators once selected - no
                     separate approval step</td>
-                  <td>—</td>
+                  <td>-</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="section-title">My booking requests</div>
+          <div style="font-size:11px;color:var(--text-tertiary);margin-top:8px"><i
+              class="fa-solid fa-circle-info"></i>&nbsp; Every transition is logged. Decisions are immutable. No
+            email-based approvals. Full audit trail maintained.</div>
+        </div>
+
+        <!-- ===== ASSET BOOKING - MY BOOKING REQUESTS ===== -->
+        <div class="screen" id="s-booking-requests">
+          <div class="page-header">
+            <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:6px">
+              <span style="color:var(--text-secondary);cursor:pointer" onclick="go('booking',null)">← Asset
+                Booking</span></div>
+            <div class="page-title">My booking requests</div>
+            <div class="page-subtitle">Status of assets you have requested, linked to your Project IDs</div>
+          </div>
           <div class="card" style="padding:0;overflow:hidden">
             <table class="table">
               <thead>
@@ -2825,7 +2892,7 @@
               </div>
               <div style="flex:1">
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-                  <span style="font-size:12.5px;font-weight:600">New Blog Released — Innovation in the Age of AI</span>
+                  <span style="font-size:12.5px;font-weight:600">New Blog Released - Innovation in the Age of AI</span>
                   <span style="font-size:10px;background:#f3e5f5;color:#7c3aed;padding:2px 8px;border-radius:20px;font-weight:600">Blog</span>
                 </div>
                 <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.6">Read our latest blog on how BML projects are embracing AI-first approaches across IM stages. Featuring SmartFlex Pilot and GreenLoop as case highlights.</div>
@@ -2862,7 +2929,7 @@
               </div>
               <div style="flex:1">
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-                  <span style="font-size:12.5px;font-weight:600">Platform maintenance window — 22 Jun, 11 PM–1 AM IST</span>
+                  <span style="font-size:12.5px;font-weight:600">Platform maintenance window - 22 Jun, 11 PM–1 AM IST</span>
                   <span style="font-size:10px;background:var(--bg-secondary);color:var(--text-secondary);padding:2px 8px;border-radius:20px;font-weight:600;border:1px solid var(--border-light)">Maintenance</span>
                 </div>
                 <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.6">Cloud Sandbox and Asset Booking will be briefly unavailable during this window.</div>
@@ -2879,7 +2946,7 @@
               </div>
               <div style="flex:1">
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-                  <span style="font-size:12.5px;font-weight:600">GreenLoop reaches IM5 — congratulations to the team</span>
+                  <span style="font-size:12.5px;font-weight:600">GreenLoop reaches IM5 - congratulations to the team</span>
                   <span style="font-size:10px;background:var(--amber-bg);color:var(--amber-text);padding:2px 8px;border-radius:20px;font-weight:600">Achievement</span>
                 </div>
                 <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.6">First Call4Ideas project to complete the full Explore → Build → Scale journey.</div>
@@ -2905,7 +2972,7 @@
           </div>
 
           <div id="gov-stage">
-            <div class="section-title">Stage advancement request — SmartFlex Pilot (IM3 → IM4)</div>
+            <div class="section-title">Stage advancement request - SmartFlex Pilot (IM3 → IM4)</div>
             <div class="two-col">
               <div>
                 <div class="card" style="margin-bottom:14px">
@@ -2925,7 +2992,7 @@
                         style="font-size:13px;padding:7px 16px">IM4</span>
                     </div>
                   </div>
-                  <div class="section-title">Checklist — milestone completion, KPI thresholds, budget consumed</div>
+                  <div class="section-title">Checklist - milestone completion, KPI thresholds, budget consumed</div>
                   <div style="font-size:12px">
                     <div class="flex-row" style="padding:7px 0;border-bottom:1px solid var(--border-light)"><i
                         class="fa-solid fa-circle-check" style="color:var(--green-text)"></i> Customer discovery
@@ -2937,7 +3004,7 @@
                         class="fa-solid fa-circle-check" style="color:var(--green-text)"></i> Prototype v1 delivered
                     </div>
                     <div class="flex-row" style="padding:7px 0;color:var(--text-secondary)"><i
-                        class="fa-regular fa-circle" style="color:var(--text-tertiary)"></i>&nbsp; A-Funding approval —
+                        class="fa-regular fa-circle" style="color:var(--text-tertiary)"></i>&nbsp; A-Funding approval -
                       pending</div>
                   </div>
                 </div>
@@ -3025,9 +3092,9 @@
                     <td style="font-size:11px">Panel review → Selected</td>
                     <td><span style="display:flex;gap:6px"><button
                           class="btn btn-sm btn-success"
-                          onclick="openApprovalModal(this,'approve','FleetOps AI — Seed funding · €30,000')">Approve</button><button
+                          onclick="openApprovalModal(this,'approve','FleetOps AI - Seed funding · €30,000')">Approve</button><button
                           class="btn btn-sm btn-danger"
-                          onclick="openApprovalModal(this,'reject','FleetOps AI — Seed funding · €30,000')">Reject</button></span></td>
+                          onclick="openApprovalModal(this,'reject','FleetOps AI - Seed funding · €30,000')">Reject</button></span></td>
                   </tr>
                   <tr>
                     <td>EnergyMesh</td>
@@ -3037,9 +3104,9 @@
                     <td style="font-size:11px">Review → Approved/Rejected</td>
                     <td><span style="display:flex;gap:6px"><button
                           class="btn btn-sm btn-success"
-                          onclick="openApprovalModal(this,'approve','EnergyMesh — A-Funding · €120,000')">Approve</button><button
+                          onclick="openApprovalModal(this,'approve','EnergyMesh - A-Funding · €120,000')">Approve</button><button
                           class="btn btn-sm btn-danger"
-                          onclick="openApprovalModal(this,'reject','EnergyMesh — A-Funding · €120,000')">Reject</button></span></td>
+                          onclick="openApprovalModal(this,'reject','EnergyMesh - A-Funding · €120,000')">Reject</button></span></td>
                   </tr>
                 </tbody>
               </table>
@@ -3072,15 +3139,15 @@
                     <td>Lab Manager / Admin</td>
                     <td><span style="display:flex;gap:6px"><button
                           class="btn btn-sm btn-success"
-                          onclick="openApprovalModal(this,'approve','Arjun K. — Lab workstation A3 (BML-2025-031)')">Approve</button><button
+                          onclick="openApprovalModal(this,'approve','Arjun K. - Lab workstation A3 (BML-2025-031)')">Approve</button><button
                           class="btn btn-sm btn-danger"
-                          onclick="openApprovalModal(this,'reject','Arjun K. — Lab workstation A3 (BML-2025-031)')">Reject</button></span></td>
+                          onclick="openApprovalModal(this,'reject','Arjun K. - Lab workstation A3 (BML-2025-031)')">Reject</button></span></td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:8px">Resource access (People) is available
-              to all selected innovators automatically — no separate approval needed.</div>
+              to all selected innovators automatically - no separate approval needed.</div>
           </div>
 
           <div id="gov-log" style="display:none">
@@ -3122,14 +3189,14 @@
               </table>
             </div>
             <div style="font-size:11px;color:var(--text-tertiary);margin-top:8px"><i class="fa-solid fa-lock"></i> Log
-              entries are immutable — no modifications or deletions permitted.</div>
+              entries are immutable - no modifications or deletions permitted.</div>
           </div>
         </div>
 
         <!-- ===== INSIGHTS ===== -->
         <div class="screen" id="s-insights">
           <div class="page-header">
-            <div class="page-title">Insights — Portfolio intelligence</div>
+            <div class="page-title">Insights - Portfolio intelligence</div>
             <div class="page-subtitle">Accessible to IPM, Admin and Leadership roles only · Data-first design, minimal
               color, clear graphs</div>
           </div>
@@ -3165,7 +3232,7 @@
             </select>
           </div>
 
-          <!-- ROW 1 — KPI Tiles (BRD: Stage distribution | Avg. time per stage | Total funding | Realized ROI | Active campaigns) -->
+          <!-- ROW 1 - KPI Tiles (BRD: Stage distribution | Avg. time per stage | Total funding | Realized ROI | Active campaigns) -->
           <div class="kpi-row">
             <div class="kpi">
               <div class="kpi-label">Stage distribution</div>
@@ -3211,7 +3278,7 @@
             </div>
           </div>
 
-          <!-- ROW 2 — Charts: Funding allocation by stage (bar) | Idea-to-scale funnel -->
+          <!-- ROW 2 - Charts: Funding allocation by stage (bar) | Idea-to-scale funnel -->
           <div class="two-col" style="margin-bottom:20px">
             <div class="card" style="display:flex;flex-direction:column">
               <div class="section-title">Funding allocation by stage</div>
@@ -3256,7 +3323,7 @@
             </div>
           </div>
 
-          <!-- ROW 3 — Performance Tables: Campaign performance table | Cohort performance table -->
+          <!-- ROW 3 - Performance Tables: Campaign performance table | Cohort performance table -->
           <div class="two-col" style="margin-bottom:8px">
             <div>
               <div class="section-title">Campaign performance</div>
@@ -3343,7 +3410,7 @@
                       <td style="font-weight:500">2026-A</td>
                       <td>Call4More</td>
                       <td>TBD</td>
-                      <td style="color:var(--text-tertiary)">—</td>
+                      <td style="color:var(--text-tertiary)">-</td>
                       <td style="color:var(--text-tertiary);font-size:11px">Upcoming</td>
                     </tr>
                   </tbody>
@@ -3364,7 +3431,7 @@
             <div class="coming-soon-text">The IPM Workflow experience is being finalized.</div>
           </div>
           <div class="page-header">
-            <div class="page-title">IPM Workflow — Central Tool process screens</div>
+            <div class="page-title">IPM Workflow - Central Tool process screens</div>
             <div class="page-subtitle">Sanity check (500 list) → Longlisting → Shortlisting → Notify teams → Seed
               funding approval</div>
           </div>
@@ -3385,7 +3452,7 @@
           <div id="ipm-sanity">
             <div class="card" style="margin-bottom:12px">
               <div style="font-weight:600;font-size:13px;margin-bottom:2px">Call4Ideas 2025 · Sanity check <span
-                  style="font-size:10px;color:var(--text-tertiary);font-weight:400">— 500 shortlist review</span></div>
+                  style="font-size:10px;color:var(--text-tertiary);font-weight:400">- 500 shortlist review</span></div>
               <div style="font-size:12px;color:var(--text-secondary)">Review submitted ideas for completeness,
                 relevance, and non-duplication</div>
             </div>
@@ -3439,7 +3506,7 @@
           <div id="ipm-long" style="display:none">
             <div class="card" style="margin-bottom:12px">
               <div style="font-weight:600;font-size:13px;margin-bottom:2px">Call4Ideas 2025 · IPM Longlisting</div>
-              <div style="font-size:12px;color:var(--text-secondary)">Curated longlist of ideas for deeper evaluation —
+              <div style="font-size:12px;color:var(--text-secondary)">Curated longlist of ideas for deeper evaluation -
                 Approve / Reject per idea</div>
             </div>
             <div class="card" style="padding:0;overflow:hidden">
@@ -3482,7 +3549,7 @@
           <div id="ipm-short" style="display:none">
             <div class="card" style="margin-bottom:12px">
               <div style="font-weight:600;font-size:13px;margin-bottom:2px">Call4Ideas 2025 · IPM Shortlisting</div>
-              <div style="font-size:12px;color:var(--text-secondary)">Filtered shortlist — Approve / Reject, rank</div>
+              <div style="font-size:12px;color:var(--text-secondary)">Filtered shortlist - Approve / Reject, rank</div>
             </div>
             <div class="card" style="padding:0;overflow:hidden">
               <table class="table">
@@ -3525,20 +3592,20 @@
             <div class="card" style="margin-bottom:12px">
               <div style="font-weight:600;font-size:13px;margin-bottom:2px">Call4Ideas 2025 · Notify Teams for Pitch
               </div>
-              <div style="font-size:12px;color:var(--text-secondary)">Shortlisted teams with contact info — Approve /
+              <div style="font-size:12px;color:var(--text-secondary)">Shortlisted teams with contact info - Approve /
                 Reject, send notification</div>
             </div>
             <div class="card">
               <div
                 style="margin-bottom:10px;padding:10px;background:var(--bg-secondary);border-radius:var(--radius-md);font-size:12px">
                 <span style="font-size:10px;color:var(--text-tertiary)">Call4Ideas · Open
-                  innovation</span><br><strong>SupplierLens</strong> — Kavita Shah · kavita.shah@bosch.com<br><button
+                  innovation</span><br><strong>SupplierLens</strong> - Kavita Shah · kavita.shah@bosch.com<br><button
                   class="btn btn-sm" style="margin-top:7px"><i class="fa-solid fa-envelope"></i> Send pitch
                   invite</button>
               </div>
               <div style="padding:10px;background:var(--bg-secondary);border-radius:var(--radius-md);font-size:12px">
                 <span style="font-size:10px;color:var(--text-tertiary)">Call4Ideas · Open
-                  innovation</span><br><strong>EnergyMesh</strong> — Arjun Kumar · arjun.kumar@bosch.com<br><button
+                  innovation</span><br><strong>EnergyMesh</strong> - Arjun Kumar · arjun.kumar@bosch.com<br><button
                   class="btn btn-sm" style="margin-top:7px"><i class="fa-solid fa-envelope"></i> Send pitch
                   invite</button>
               </div>
@@ -3548,7 +3615,7 @@
             <div class="card" style="margin-bottom:12px">
               <div style="font-weight:600;font-size:13px;margin-bottom:2px">Call4Ideas 2025 · Seed Funding Approval
               </div>
-              <div style="font-size:12px;color:var(--text-secondary)">Seed budget request details — Approve / Reject
+              <div style="font-size:12px;color:var(--text-secondary)">Seed budget request details - Approve / Reject
                 with comments</div>
             </div>
             <div class="card" style="padding:0;overflow:hidden">
@@ -3598,11 +3665,11 @@
           <div
             style="background:var(--bbg);border:1px solid #bbdefb;border-radius:var(--radius-md);padding:8px 12px;font-size:11px;color:var(--blue-text);margin-bottom:14px">
             <i class="fa-solid fa-circle-info"></i>&nbsp; This grid shows every campaign published by Admin / Campaign
-            Manager (via Create Campaign). New campaigns appear here automatically once activated — closed campaigns are
+            Manager (via Create Campaign). New campaigns appear here automatically once activated - closed campaigns are
             greyed out.
           </div>
           <div id="submit-step1">
-            <div class="section-title">Select campaign — active campaigns grid (3-column)</div>
+            <div class="section-title">Select campaign - active campaigns grid (3-column)</div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
               <div class="card-sm" onclick="selectCampaign('Call4Ideas')">
                 <div class="flex-between">
@@ -3828,13 +3895,13 @@
               <div class="card">
                 <div class="section-title">What BML is</div>
                 <div style="font-size:12px;color:var(--text-secondary);line-height:1.7">Bosch Momentum Lab takes ideas
-                  from initial conception through to scaled, revenue-generating initiatives across three layers —
-                  Explore, Build, and Scale — underpinned by the IM2–IM5 innovation lifecycle. It balances
+                  from initial conception through to scaled, revenue-generating initiatives across three layers -
+                  Explore, Build, and Scale - underpinned by the IM2–IM5 innovation lifecycle. It balances
                   curiosity-driven exploration in early stages with structured, governance-aware execution as projects
                   mature.</div>
                 <div class="pill-row" style="margin-top:12px">
-                  <span class="pill">Explore — IM2</span><span class="pill">Build — IM2→IM4</span><span
-                    class="pill">Scale — IM4→IM5</span>
+                  <span class="pill">Explore - IM2</span><span class="pill">Build - IM2→IM4</span><span
+                    class="pill">Scale - IM4→IM5</span>
                 </div>
               </div>
               <div class="card">
@@ -3897,7 +3964,7 @@
       <div class="form-group">
         <label class="form-label">Comment <span style="color:var(--red-text)">*</span></label>
         <textarea class="form-input" id="approval-modal-comment" style="min-height:90px;resize:vertical"
-          placeholder="Add a comment explaining this decision — required for the immutable decision log..."></textarea>
+          placeholder="Add a comment explaining this decision - required for the immutable decision log..."></textarea>
         <div id="approval-modal-error" style="display:none;color:var(--red-text);font-size:11px;margin-top:4px">A
           comment is required before this decision can be logged.</div>
       </div>
@@ -3910,18 +3977,19 @@
 
   <script>
     const screenTitles = {
-      home: 'Home', explore: 'Explore', build: 'Build Workspace', scale: 'Scale — Portfolio',
+      home: 'Home', explore: 'Explore', build: 'Build Workspace', scale: 'Scale - Portfolio',
       campaigns: 'Campaigns', cohorts: 'Cohorts', repo: 'Repository', learning: 'Learning',
-      sandbox: 'Cloud Sandbox', people: 'People — Expert Network', booking: 'Asset Booking',
+      sandbox: 'Cloud Sandbox', people: 'People - Expert Network', booking: 'Asset Booking',
+      'booking-approval': 'Asset Booking - Approval Logic', 'booking-requests': 'Asset Booking - My Requests',
       communications: 'Communications',
       governance: 'Governance & Standards', insights: 'Insights / KPIs',
       ipm: 'IPM Workflow', submit: 'Submit Idea', profile: 'Profile', about: 'About / Help',
-      admincampaign: 'Create Campaign — Admin'
+      admincampaign: 'Create Campaign - Admin'
     };
 
     function go(id, clickedEl) {
       document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      document.querySelectorAll('.nav-item, .nav-subitem').forEach(n => n.classList.remove('active'));
       const screen = document.getElementById('s-' + id);
       if (screen) screen.classList.add('active');
       if (clickedEl) clickedEl.classList.add('active');
